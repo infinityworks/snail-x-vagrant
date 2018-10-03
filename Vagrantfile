@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
 
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder "../snail-x-core", "/vagrant/snail-x-core"
+  config.vm.synced_folder "../snail-x-feed-handler", "/vagrant/snail-x-feed-handler"
 
 end
