@@ -3,16 +3,15 @@
     become: true
     apt:
       upgrade: yes
-      update_cache: yes
+
   - name: Install Python
     apt:
-      name: python
-      update_cache: yes
+      name: python3
+
   - name: Install PIP
     apt:
-      name: pip
-      update_cache: yes
+      name: python-pip
+
   - name: Install VirtualEnv
     apt:
       name: virtualenv
-      update_cache: yes
