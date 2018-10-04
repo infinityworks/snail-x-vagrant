@@ -1,2 +1,4 @@
 snail-x-core/
 snail-x-feed-handler/
+.vagrant/
+playbook.retry

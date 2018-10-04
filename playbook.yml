@@ -1,5 +1,12 @@
 ---
 - hosts: all
   become: true
+  vars:
+     core_venv: "/home/vagrant/core-venv"
+     core_req: "/vagrant/snail-x-core/requirements.txt"
+     feed_venv: "/home/vagrant/feed-venv"
+     feed_req: "/vagrant/snail-x-feed-handler/requirements.txt"
   roles:
      - python
+     - node
+     - mysql
