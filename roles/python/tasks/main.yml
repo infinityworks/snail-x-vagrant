@@ -33,6 +33,7 @@
     pip:
       name: mysql-connector-python-rf
       state: present
+      
   - name: Start MySQL service
     sudo: yes
     service:
