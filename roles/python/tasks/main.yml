@@ -14,67 +14,18 @@
       state: present
 
   - name: Install VirtualEnv
-    apt:
+    pip:
       name: virtualenv
-      state: present
+      executable: pip3
 
-  - name: Install Flask-Cors
+  - name: Core VirtualEnv Setup
     pip:
-      name: flask-cors
-      state: present
+      virtualenv: "{{ core_venv }}"
+      virtualenv_python: python3
+      requirements: "{{ core_req }}"
 
-  - name: Install NPM
-    apt:
-      name: npm
-      state: present
-
-  - name: Install @vue/cli
-    npm:
-      name: "@vue/cli"
-      global: true
-
-  - name: Install vue-resource
-    npm: 
-      name: vue-resource
-      global: true
- 
-  - name: install MySQL Python
-    apt:
-      name: python-mysqldb
-      state: present
-
-  - name: install MySQL
-    apt:
-      name: mysql-server
-      state: present
-
-  - name: install mySQL connector
+  - name: Feed VirtualEnv Setup
     pip:
-      name: mysql-connector-python-rf
-      state: present
-      
-  - name: Start MySQL service
-    sudo: yes
-    service:
-      name: mysql
-      state: started
-      enabled: true
-
-  - name: update mysql root password
-    sudo: yes
-    mysql_user:
-      name: root
-      password: mysqlpasswd
-      login_user: root
-      login_password: mysqlpasswd
-      check_implicit_admin: yes
-      priv: "*.*:ALL,GRANT"
-
-  - name: copy Python database script
-    copy:
-      src: DBCreateScript.py
-      dest: /vagrant
-
-  - name: run Python database create script
-    become: true
-    shell: python /vagrant/DBCreateScript.py
+      virtualenv: "{{ feed_venv }}"
+      virtualenv_python: python3
+      requirements: "{{ feed_req }}"

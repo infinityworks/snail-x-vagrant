@@ -1,0 +1,14 @@
+  - name: Install NPM
+    apt:
+      name: npm
+      state: present
+
+  - name: Install @vue/cli
+    npm:
+      name: "@vue/cli"
+      global: true
+
+  - name: Install vue-resource
+    npm:
+      name: vue-resource
+      global: true
