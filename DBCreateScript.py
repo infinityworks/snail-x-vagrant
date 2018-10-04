@@ -27,7 +27,9 @@ cursor.execute("USE snailRacing")
 
 # create user and user score tables
 cursor.execute("CREATE TABLE users (userID INT AUTO_INCREMENT PRIMARY KEY,"
-                                    "name VARCHAR(50),"
+                                    "firstName VARCHAR(50),"
+                                    "secondName VARCHAR(50),"
+                                    "username VARCHAR(50),"
                                     "password VARCHAR(255),"
                                     "email VARCHAR(50))")
 
