@@ -1,4 +1,3 @@
-
   - name: Update and upgrade apt packages
     become: true
     apt:
@@ -15,47 +14,18 @@
       state: present
 
   - name: Install VirtualEnv
-    apt:
-      name: virtualenv
-      state: present
-
-  - name: install MySQL Python
-    apt:
-      name: python-mysqldb
-      state: present
-
-  - name: install MySQL
-    apt:
-      name: mysql-server
-      state: present
-
-  - name: install mySQL connector
     pip:
-      name: mysql-connector-python-rf
-      state: present
-      
-  - name: Start MySQL service
-    sudo: yes
-    service:
-      name: mysql
-      state: started
-      enabled: true
+      name: virtualenv
+      executable: pip3
 
-  - name: update mysql root password
-    sudo: yes
-    mysql_user:
-      name: root
-      password: mysqlpasswd
-      login_user: root
-      login_password: mysqlpasswd
-      check_implicit_admin: yes
-      priv: "*.*:ALL,GRANT"
+  - name: Core VirtualEnv Setup
+    pip:
+      virtualenv: "{{ core_venv }}"
+      virtualenv_python: python3
+      requirements: "{{ core_req }}"
 
-  - name: copy Python database script
-    copy:
-      src: DBCreateScript.py
-      dest: /vagrant
-
-  - name: run Python database create script
-    become: true
-    shell: python /vagrant/DBCreateScript.py
+  - name: Feed VirtualEnv Setup
+    pip:
+      virtualenv: "{{ feed_venv }}"
+      virtualenv_python: python3
+      requirements: "{{ feed_req }}"
