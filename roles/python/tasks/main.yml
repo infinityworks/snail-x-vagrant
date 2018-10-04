@@ -10,7 +10,7 @@
 
   - name: Install PIP
     apt:
-      name: python-pip
+      name: python3-pip
       state: present
 
   - name: Install VirtualEnv
@@ -37,3 +37,44 @@
     npm: 
       name: vue-resource
       global: true
+ 
+  - name: install MySQL Python
+    apt:
+      name: python-mysqldb
+      state: present
+
+  - name: install MySQL
+    apt:
+      name: mysql-server
+      state: present
+
+  - name: install mySQL connector
+    pip:
+      name: mysql-connector-python-rf
+      state: present
+      
+  - name: Start MySQL service
+    sudo: yes
+    service:
+      name: mysql
+      state: started
+      enabled: true
+
+  - name: update mysql root password
+    sudo: yes
+    mysql_user:
+      name: root
+      password: mysqlpasswd
+      login_user: root
+      login_password: mysqlpasswd
+      check_implicit_admin: yes
+      priv: "*.*:ALL,GRANT"
+
+  - name: copy Python database script
+    copy:
+      src: DBCreateScript.py
+      dest: /vagrant
+
+  - name: run Python database create script
+    become: true
+    shell: python /vagrant/DBCreateScript.py

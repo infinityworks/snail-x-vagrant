@@ -1,0 +1,71 @@
+#DATABASE SCHEMA
+#https://app.quickdatabasediagrams.com
+
+Trainer
+-
+TrainerID PK int
+TrainerName string
+
+Snail
+-
+SnailID PK int
+TrainerID int FK >- Trainer.TrainerID
+SnailName string
+
+Race
+-
+RaceID PK int
+RoundID int FK >- Round.RoundID
+DateTime datetime
+status int FK >- Status.StatusID
+
+Racecard
+-
+RacecardID PK int
+RaceID int FK >- Race.RaceID
+SnailID int FK >- Snail.SnailID
+
+
+Round
+-
+RoundID PK int
+Prize int
+Start datetime
+Finish datetime
+RoundName string
+
+
+RaceResult
+-
+RaceResultID PK int
+RaceID int FK >- Race.RaceID
+SnailID int FK >- Snail.SnailID
+Position int
+
+User
+-
+UserID PK int
+FirstName string
+LastName string
+Username string
+Password string
+Email string
+
+UserOverallScore
+-
+UserOverallScoreID PK int
+UserID int FK >- User.UserID
+Score int
+
+Status
+-
+StatusID PK int
+StatusDescription string
+
+RacePrediction
+-
+RacePredictionID PK int
+RaceID int FK >- Race.RaceID
+UserID int FK >- User.UserID
+SnailID int FK >- Snail.SnailID
+Created datetime
