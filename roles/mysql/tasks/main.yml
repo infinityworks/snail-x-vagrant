@@ -10,7 +10,8 @@
 
   - name: install mySQL connector
     pip:
-      name: mysql-connector-python-rf
+      name: mysql-connector
+      executable: pip3
       state: present
 
   - name: Start MySQL service
@@ -37,4 +38,4 @@
 
   - name: run Python database create script
     become: true
-    shell: python /vagrant/DBCreateScript.py
+    shell: python3 /vagrant/DBCreateScript.py
