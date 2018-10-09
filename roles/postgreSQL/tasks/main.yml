@@ -6,7 +6,13 @@
     - postgresql
     - postgresql-contrib
     - libpq-dev
-    - python-psycopg2
+    - python3-psycopg2
+
+- name: install psycopg2
+  pip:
+    name: psycopg2
+    executable: pip3
+    state: present
 
 - name: Ensure the PostgreSQL service is running
   service: 
@@ -20,6 +26,15 @@
   postgresql_user:
     name: "root"
     password: "mysqlpasswd"
+    
+- name: copy Python database script
+  copy:
+    src: DBCreateScript.py
+    dest: /vagrant
+
+- name: run Python database create script
+  become: true
+  shell: python3 /vagrant/DBCreateScript.py
 
 - name: Ensure user has access to database
   become: yes
