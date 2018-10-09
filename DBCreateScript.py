@@ -6,28 +6,27 @@ import psycopg2
 #cursor = db.cursor()
 
 # connect to local PostgreSQL database
-db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' password='psqlpass'")
-cursor = db.cursor()
 
-# script should only be run to initially set up the DB
-# we want to delete ("drop") the DB if it already exists, as we can assume it's not needed
 try:
+    db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' password='psqlpass'")
+    cursor = db.cursor()
     cursor.execute("DROP DATABASE snailRacing")
 except:
     pass
 
-# then need to create our snail racing DB
 try:
+    db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' password='psqlpass'")
+    cursor = db.cursor()
     cursor.execute("CREATE DATABASE snailRacing")
 except:
     pass
 
 # db.commit() "saves" changes to the DB
-db.commit()
+#db.commit()
 
 # the connect statement from earlier essentially points to all local DBs that are present
 # -- need to tell MySQL to use the snail racing DB specifically, with "USE"
-cursor.execute("USE snailRacing")
+#cursor.execute("USE snailRacing")
 
 
 # create user and user score tables
