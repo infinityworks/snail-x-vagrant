@@ -14,10 +14,18 @@
     state: started 
     enabled: yes
 
-- name: Ensure user has access to the database
-  sudo_user: postgres
-  postgresql_user: db=snailRacing
-              name=root
-              password=postgresqlpasswd
-              priv=ALL
-              state=present
+- name: Create postgres user
+  become: yes
+  become_user: postgres
+  postgresql_user:
+    name: "root"
+    password: "postgrespasswd"
+
+- name: Ensure user has access to database
+  become: yes
+  become_user: postgres
+  postgresql_privs:
+    db: snailRacing
+    role: root
+    objs: ALL_IN_SCHEMA
+    privs: ALL
