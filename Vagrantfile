@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-18.04"
-  config.vm.network "forwarded_port", guest: 80, host: 7766
+  config.vm.network "forwarded_port", guest: 5000, host: 5000
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "playbook.yml"
