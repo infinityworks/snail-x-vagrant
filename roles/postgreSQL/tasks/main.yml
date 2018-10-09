@@ -19,7 +19,7 @@
   become_user: postgres
   postgresql_user:
     name: "root"
-    password: "postgrespasswd"
+    password: "mysqlpasswd"
 
 - name: Ensure user has access to database
   become: yes
