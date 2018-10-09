@@ -1,7 +1,12 @@
-import mysql.connector
+# import mysql.connector
+import psycopg2
 
 # connect to local MySQL databases
-db = mysql.connector.connect(host="localhost", user="root", passwd="mysqlpasswd")
+#db = mysql.connector.connect(host="localhost", user="root", passwd="mysqlpasswd")
+#cursor = db.cursor()
+
+# connect to local PostgreSQL database
+db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' password='psqlpass'")
 cursor = db.cursor()
 
 # script should only be run to initially set up the DB
@@ -29,8 +34,8 @@ cursor.execute("USE snailRacing")
 cursor.execute("CREATE TABLE users (userID INT AUTO_INCREMENT PRIMARY KEY,"
                                     "firstName VARCHAR(50),"
                                     "lastName VARCHAR(50),"
-                                    "password VARCHAR(255),"
-                                    "email VARCHAR(50))")
+                                    "password VARCHAR(50),"
+                                    "email VARCHAR(100))")
 
 cursor.execute("CREATE TABLE userOverallScore (ID INT AUTO_INCREMENT PRIMARY KEY,"
                                                 "userID INT,"
