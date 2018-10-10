@@ -6,13 +6,8 @@
     - postgresql
     - postgresql-contrib
     - libpq-dev
+    - python3-psycopg2
     - python-psycopg2
-
-# - name: install psycopg2
-#   pip:
-#     name: psycopg2
-#     executable: pip3
-#     state: present
 
 - name: Ensure the PostgreSQL service is running
   service: 
