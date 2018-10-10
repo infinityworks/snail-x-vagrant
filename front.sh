@@ -1,2 +1,2 @@
-cd /vagrant/snail-x-core-vue/front-end-webapp
+cd /vagrant/snail-x-core-vue/
 screen npm run serve

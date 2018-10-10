@@ -12,3 +12,8 @@
     npm:
       name: vue-resource
       global: true
+
+  - name: install npm in vue
+    shell: npm install
+    args:
+      chdir: /vagrant/snail-x-core-vue
