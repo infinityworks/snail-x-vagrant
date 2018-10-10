@@ -11,5 +11,8 @@ restart:
 core:
 	vagrant ssh -c "/vagrant/core.sh"
 
+front:
+	vagrant ssh -c "/vagrant/front.sh"
+
 feed:
 	vagrant ssh -c "/vagrant/feed.sh" 
