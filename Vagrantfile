@@ -12,4 +12,5 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder "../snail-x-core", "/vagrant/snail-x-core"
   config.vm.synced_folder "../snail-x-feed-handler", "/vagrant/snail-x-feed-handler"
+  config.vm.synced_folder "../snail-x-feed-handler", "/vagrant/snail-x-core-vue"
 end
