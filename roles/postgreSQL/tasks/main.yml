@@ -21,6 +21,7 @@
   postgresql_user:
     name: "root"
     password: "psqlpass"
+    encrypted: "yes"
 
 - name: Create postgres database
   become_user: postgres
