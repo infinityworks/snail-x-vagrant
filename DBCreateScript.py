@@ -39,7 +39,8 @@ try:
 
     cursor.execute("CREATE TABLE race (raceID serial PRIMARY KEY,"
                                         "roundID INT,"
-                                        "raceDate TIMESTAMP);")
+                                        "raceDate TIMESTAMP),"
+                                        "FOREIGN KEY(roundID) REFERENCES round(roundID));")
 
 
     # create racecard, race predictions, and race result tables
