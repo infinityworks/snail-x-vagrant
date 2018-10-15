@@ -50,6 +50,7 @@
 - name: run Python database create script
   become: true
   shell: python3 /vagrant/DBCreateScript.py
+
 - name: run Python database insert script
   become: true
   shell: python3 /vagrant/insert_db.py
