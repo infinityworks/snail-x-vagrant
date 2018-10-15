@@ -39,9 +39,7 @@ try:
 
     cursor.execute("CREATE TABLE race (raceID serial PRIMARY KEY,"
                                         "roundID INT,"
-                                        "raceDate TIMESTAMP,"
-                                        "status INT,"
-                                        "FOREIGN KEY(roundID) REFERENCES round(roundID));")
+                                        "raceDate TIMESTAMP);")
 
 
     # create racecard, race predictions, and race result tables
@@ -67,10 +65,6 @@ try:
                                                 "FOREIGN KEY(raceID) REFERENCES race(raceID),"
                                                 "FOREIGN KEY(userID) REFERENCES users(userID),"
                                                 "FOREIGN KEY(snailID) REFERENCES snails(snailID));")
-
-    # create status tables
-    cursor.execute("CREATE TABLE status(statusID serial PRIMARY KEY,"
-                                        "status VARCHAR(50));")
 
     # commit all changes to the DB
     db.commit()
