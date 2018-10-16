@@ -40,6 +40,7 @@ try:
 
     cursor.execute("CREATE TABLE race (race_id serial PRIMARY KEY,"
                                         "round_id INT,"
+                                        "status VARCHAR(20),"
                                         "race_date TIMESTAMP,"
                                         "FOREIGN KEY(round_id) REFERENCES round(round_id));")
 
