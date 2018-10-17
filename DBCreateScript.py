@@ -71,8 +71,7 @@ try:
     db.commit()
 
 except:
-    print("I am unable to connect to the database")
-
+    print("Unable to create tables.")
 # close the DB connection once we're done
 db.close()
 
