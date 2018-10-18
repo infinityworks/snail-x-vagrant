@@ -5,7 +5,7 @@ cursor = db.cursor()
 
 try:
     # create user and user score tables
-    cursor.execute("INSERT INTO round (round_id, prize, start_date, finish_date, round_name) VALUES (2, 100, '2018-10-15', '2018-10-30 00:00:00', 'Second Round'), (1, 100, '2018-10-20', '2018-10-25', 'First Round') ;")
+    cursor.execute("INSERT INTO round (round_id, prize, start_date, finish_date, round_name, status) VALUES (2, 100, '2018-10-15', '2018-10-30 00:00:00', 'Second Round', 'Open'), (1, 100, '2018-10-20', '2018-10-25', 'First Round', 'Closed') ;")
 
     # Adding trainers
     cursor.execute("INSERT INTO trainers (trainer_id, name) VALUES (1, 'Ash'), (2, 'Matt'), (3, 'James'), (4, 'Mike'), (5, 'Emily');")
