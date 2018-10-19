@@ -23,6 +23,10 @@
     password: "psqlpass"
     encrypted: "yes"
 
+- name: Drop database if exists
+  become: true
+  shell: dropdb --if-exists snailRacing
+
 - name: Create postgres database
   become_user: postgres
   postgresql_db:
