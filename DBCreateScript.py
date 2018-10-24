@@ -67,6 +67,24 @@ try:
                                                 "FOREIGN KEY(snail_id) REFERENCES snails(snail_id),"
                                                 "FOREIGN KEY(user_id) REFERENCES users(user_id),"
                                                 "FOREIGN KEY(race_id) REFERENCES race(race_id))")
+
+    cursor.execute("CREATE VIEW fullDataView AS SELECT "
+                   "        round.round_name, "
+                   "        round.start_date, "
+                   "        round.closed, "
+                   "        racecard.race_id, "
+                   "        race.race_date, "
+                   "        snails.name AS snail_name, "
+                   "        trainers.name AS trainer_name, "
+                   "        raceresult.position "
+                   "    FROM racecard "
+                   "    JOIN snails ON racecard.snail_id = snails.snail_id "
+                   "    JOIN trainers ON snails.trainer_id = trainers.trainer_id "
+                   "    JOIN race ON race.race_id = racecard.race_id "
+                   "    JOIN round ON round.round_id = race.round_id "
+                   "    JOIN raceresult ON racecard.race_id = raceresult.race_id "
+                   "                    AND snails.snail_id = raceresult.snail_id;")
+
     # commit all changes to the DB
     db.commit()
 except:
