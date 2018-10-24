@@ -35,9 +35,8 @@ try:
     cursor.execute("CREATE TABLE round (round_id serial PRIMARY KEY,"
                                         "prize VARCHAR(50),"
                                         "start_date TIMESTAMP,"
-                                        "finish_date TIMESTAMP,"
-                                        "round_name VARCHAR(20),"
-                                        "status VARCHAR(50));")
+                                        "closed BOOLEAN,"
+                                        "round_name VARCHAR(20));")
 
     cursor.execute("CREATE TABLE race (race_id serial PRIMARY KEY,"
                                         "round_id INT,"
