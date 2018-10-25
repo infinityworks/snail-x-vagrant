@@ -16,4 +16,4 @@
   - name: install npm in vue
     shell: npm install
     args:
-      chdir: /vagrant/snail-x-core-vue
+      chdir: /vagrant/snail-x-vue

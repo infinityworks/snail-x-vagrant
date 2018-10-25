@@ -1,5 +1,6 @@
 snail-x-core/
 snail-x-feed-handler/
+snail-x-vue/
 .vagrant/
 playbook.retry
 roles/python/.DS_Store
