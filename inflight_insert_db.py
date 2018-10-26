@@ -29,8 +29,8 @@ cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
 
 # Adding raceresults
 cursor.execute("INSERT INTO raceresult (race_result_id, race_id, snail_id, position) "
-               "VALUES (1, 6, 1, 1), (2, 6, 2, 2), (3, 6, 3, 3), "
-               "       (7, 1, 2, 3), (8, 1, 6, 2), (9, 1, 5, 1);")
+               "VALUES (1000, 6, 1, 1), (2000, 6, 2, 2), (3000, 6, 3, 3), "
+               "       (7000, 1, 2, 3), (8000, 1, 6, 2), (9000, 1, 5, 1);")
 
 # commit all changes to the DB
 db.commit()
