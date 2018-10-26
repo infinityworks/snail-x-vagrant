@@ -4,10 +4,8 @@ db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' passwor
 cursor = db.cursor()
 
 # create user and user score tables
-
 cursor.execute("INSERT INTO round (round_id, prize, start_date, closed, round_name) "
-               "VALUES (2, 100, '2018-10-17', false , 'Second Round'), "
-               "        (1, 100, '2018-10-12', true, 'First Round') ;")
+               "VALUES (2, 100, '2018-10-17', false , 'Second Round');")
 
 # Adding trainers
 cursor.execute("INSERT INTO trainers (trainer_id, name) "
@@ -21,8 +19,7 @@ cursor.execute("INSERT INTO snails (snail_id, trainer_id, name) "
 
 # Adding races
 cursor.execute("INSERT INTO race (race_id, round_id, race_date) "
-               "VALUES (1, 1, '2018-10-12 12:00:00'), (2, 1, '2018-10-13 12:00:00'), (3, 1, '2018-10-14 12:00:00'), "
-               "(4, 2, '2018-11-12 12:00:00'), (5, 2, '2018-11-13 12:00:00'), (6, 2, '2018-11-14 12:00:00');")
+               "VALUES (4, 2, '2019-11-12 12:00:00'), (5, 2, '2019-11-13 12:00:00'), (6, 2, '2019-11-14 12:00:00');")
 
 # Adding racecards
 cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
@@ -32,6 +29,7 @@ cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
 
 # commit all changes to the DB
 db.commit()
+
 
 # close the DB connection once we're done
 db.close()
