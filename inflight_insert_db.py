@@ -5,7 +5,7 @@ cursor = db.cursor()
 
 # create user and user score tables
 cursor.execute("INSERT INTO round (round_id, prize, start_date, closed, round_name) "
-               "VALUES (2, 100, '2018-10-17', false , 'Second Round');")
+               "VALUES (1, 100, '2018-10-17', false , 'Second Round');")
 
 # Adding trainers
 cursor.execute("INSERT INTO trainers (trainer_id, name) "
@@ -29,7 +29,7 @@ cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
 
 # Adding raceresults
 cursor.execute("INSERT INTO raceresult (race_result_id, race_id, snail_id, position) "
-               "VALUES (7000, 1, 2, 3), (8000, 1, 6, 2), (9000, 1, 5, 1);")
+               "VALUES (1000, 1, 4, 4), (2000, 1, 3, 3), (3000, 1, 2, 2), (4000, 1, 2, 2), (5000, 1, 1, 1);")
 
 # commit all changes to the DB
 db.commit()
