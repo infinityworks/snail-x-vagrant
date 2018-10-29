@@ -4,6 +4,7 @@ db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' passwor
 cursor = db.cursor()
 
 # create user and user score tables
+
 cursor.execute("INSERT INTO round (round_id, prize, start_date, closed, round_name) "
                "VALUES (2, 100, '2018-10-17', false , 'Second Round'), "
                "        (1, 100, '2018-10-12', true, 'First Round') ;")
@@ -31,7 +32,6 @@ cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
 
 # commit all changes to the DB
 db.commit()
-
 
 # close the DB connection once we're done
 db.close()
