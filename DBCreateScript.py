@@ -69,7 +69,11 @@ try:
                                                 "FOREIGN KEY(race_id) REFERENCES race(race_id))")
 
     cursor.execute("CREATE VIEW fullDataView AS SELECT "
+<<<<<<< HEAD
                    "        round.round_id, "
+=======
+                   "        round.round_id,   "
+>>>>>>> 04fcef70bab08da8f3619ee52b1cfa848ee93cef
                    "        round.round_name, "
                    "        round.start_date, "
                    "        round.closed, "
