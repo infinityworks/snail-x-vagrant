@@ -5,7 +5,7 @@ cursor = db.cursor()
 
 # create user and user score tables
 cursor.execute("INSERT INTO round (round_id, prize, start_date, closed, round_name) "
-               "VALUES (2, 100, '2018-10-17', false , 'Second Round');")
+               "VALUES (2, 100, '2017-10-17', true , 'Second Round');")
 
 # Adding trainers
 cursor.execute("INSERT INTO trainers (trainer_id, name) "
@@ -19,7 +19,7 @@ cursor.execute("INSERT INTO snails (snail_id, trainer_id, name) "
 
 # Adding races
 cursor.execute("INSERT INTO race (race_id, round_id, race_date) "
-               "VALUES (4, 2, '2018-10-18 12:00:00'), (5, 2, '2018-10-19 12:00:00'), (6, 2, '2019-10-20 12:00:00');")
+               "VALUES (4, 2, '2017-10-18 12:00:00'), (5, 2, '2017-10-19 12:00:00'), (6, 2, '2017-10-20 12:00:00');")
 
 # Adding racecards
 cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
@@ -27,11 +27,11 @@ cursor.execute("INSERT INTO racecard (race_card_id, race_id, snail_id) "
                "       (7, 4, 2), (8, 4, 6), (9, 4, 5), "
                "        (4, 5, 4), (5, 5, 5), (6, 5, 1);")
 
-# Adding results
-cursor.execute("INSERT INTO raceresult (race_result_id, race_id, snail_id, position) "
-               "VALUES (1, 6, 1, 2), (2, 6, 2, 3), (3, 6, 3, 1), "
-               "       (7, 4, 2, 3), (8, 4, 6, 2), (9, 4, 5, 1), "
-               "        (4, 5, 4, 3), (5, 5, 5, 1), (6, 5, 1, 2);")
+#Adding results
+cursor.execute("INSERT INTO raceresult (race_result_id, race_id, snail_id, position)"
+               "VALUES (1, 6, 1, 2), (2, 6, 2, 1), (3, 6, 3, 3), "
+               "       (7, 4, 2, 1), (8, 4, 6, 3), (9, 4, 5, 2), "
+               "        (4, 5, 4, 2), (5, 5, 5, 1), (6, 5, 1, 3);")
 
 # commit all changes to the DB
 db.commit()

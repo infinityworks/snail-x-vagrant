@@ -59,9 +59,9 @@
 #  become: true
 #  shell: python3 /vagrant/insert_db.py
 
-- name: run Python database insert script with open round
-  become: true
-  shell: python3 /vagrant/open_insert_db.py
+#- name: run Python database insert script with open round
+#  become: true
+#  shell: python3 /vagrant/open_insert_db.py
 
 #- name: run Python database insert script with future round
 #  become: true
@@ -74,3 +74,7 @@
 #- name: run Python database insert script with no future round
 #  become: true
 #  shell: python3 /vagrant/no_future_insert_db.py
+
+- name: run Python database insert script with closed round, no predictions
+  become: true
+  shell: python3 /vagrant/closed_round_with_results_insert_db.py

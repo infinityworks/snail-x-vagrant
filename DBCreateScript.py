@@ -1,7 +1,5 @@
-# import mysql.connector
+# import postgres module
 import psycopg2
-
-
 
 db = psycopg2.connect("host='localhost' dbname='snailRacing' user='root' password='psqlpass'")
 cursor = db.cursor()
@@ -20,7 +18,6 @@ try:
                                                     "score INT,"
                                                     "FOREIGN KEY(user_id) REFERENCES users(user_id));")
 
-
     # create trainer and snails tables
     cursor.execute("CREATE TABLE trainers (trainer_id serial PRIMARY KEY,"
                                             "name VARCHAR(50));")
@@ -29,7 +26,6 @@ try:
                                         "trainer_id INT,"
                                         "name VARCHAR(50),"
                                         "FOREIGN KEY(trainer_id) REFERENCES trainers(trainer_id));")
-
 
     # create round and race tables
     cursor.execute("CREATE TABLE round (round_id serial PRIMARY KEY,"
@@ -43,7 +39,6 @@ try:
                                         "status VARCHAR(20),"
                                         "race_date TIMESTAMP,"
                                         "FOREIGN KEY(round_id) REFERENCES round(round_id));")
-
 
     # create racecard, race predictions, and race result tables
     cursor.execute("CREATE TABLE racecard (race_card_id serial PRIMARY KEY,"
@@ -69,11 +64,7 @@ try:
                                                 "FOREIGN KEY(race_id) REFERENCES race(race_id))")
 
     cursor.execute("CREATE VIEW fullDataView AS SELECT "
-<<<<<<< HEAD
-                   "        round.round_id, "
-=======
                    "        round.round_id,   "
->>>>>>> 04fcef70bab08da8f3619ee52b1cfa848ee93cef
                    "        round.round_name, "
                    "        round.start_date, "
                    "        round.closed, "
@@ -93,6 +84,7 @@ try:
 
     # commit all changes to the DB
     db.commit()
+
 except:
     print("I am unable to connect to the database")
 
