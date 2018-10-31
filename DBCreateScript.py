@@ -66,7 +66,14 @@ try:
                                                 "created TIMESTAMP,"
                                                 "FOREIGN KEY(snail_id) REFERENCES snails(snail_id),"
                                                 "FOREIGN KEY(user_id) REFERENCES users(user_id),"
-                                                "FOREIGN KEY(race_id) REFERENCES race(race_id))")
+                                                "FOREIGN KEY(race_id) REFERENCES race(race_id));")
+
+    cursor.execute("CREATE TABLE roundResult (round_result_id serial PRIMARY KEY,"
+                                                "user_id INT,"
+                                                "round_id INT,"
+                                                "score INT,"
+                                                "FOREIGN KEY(user_id) REFERENCES users(user_id),"
+                                                "FOREIGN KEY(round_id) REFERENCES round(round_id));")
 
     cursor.execute("CREATE VIEW fullDataView AS SELECT "
                    "        round.round_id,   "
