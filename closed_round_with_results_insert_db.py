@@ -33,6 +33,7 @@ cursor.execute("INSERT INTO raceresult (race_result_id, race_id, snail_id, posit
                "       (7, 4, 2, 1), (8, 4, 6, 3), (9, 4, 5, 2), "
                "        (4, 5, 4, 2), (5, 5, 5, 1), (6, 5, 1, 3);")
 
+
 # commit all changes to the DB
 db.commit()
 

@@ -67,14 +67,14 @@
 #  become: true
 #  shell: python3 /vagrant/future_insert_db.py
 
-#- name: run Python database insert script with inflight round
-#  become: true
-#  shell: python3 /vagrant/inflight_insert_db.py
+- name: run Python database insert script with inflight round
+  become: true
+  shell: python3 /vagrant/inflight_insert_db.py
 
 #- name: run Python database insert script with no future round
 #  become: true
 #  shell: python3 /vagrant/no_future_insert_db.py
 
-- name: run Python database insert script with closed round, no predictions
-  become: true
-  shell: python3 /vagrant/closed_round_with_results_insert_db.py
+#- name: run Python database insert script with closed round, no predictions
+#  become: true
+#  shell: python3 /vagrant/closed_round_with_results_insert_db.py
