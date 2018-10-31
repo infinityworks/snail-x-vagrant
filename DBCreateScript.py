@@ -82,6 +82,7 @@ try:
                    "        round.closed, "
                    "        racecard.race_id, "
                    "        race.race_date, "
+                   "        snails.snail_id,"
                    "        snails.name AS snail_name, "
                    "        trainers.name AS trainer_name, "
                    "        raceresult.position "
@@ -90,7 +91,7 @@ try:
                    "    JOIN trainers ON snails.trainer_id = trainers.trainer_id "
                    "    JOIN race ON race.race_id = racecard.race_id "
                    "    JOIN round ON round.round_id = race.round_id "
-                   "    JOIN raceresult ON racecard.race_id = raceresult.race_id "
+                   "    FULL OUTER JOIN raceresult ON racecard.race_id = raceresult.race_id "
                    "                    AND snails.snail_id = raceresult.snail_id;")
 
     # commit all changes to the DB
