@@ -63,9 +63,9 @@
 #  become: true
 #  shell: python3 /vagrant/insert_db.py
 
-#- name: run Python database insert script with open round
-#  become: true
-#  shell: python3 /vagrant/open_insert_db.py
+# - name: run Python database insert script with open round
+#   become: true
+#   shell: python3 /vagrant/open_insert_db.py
 
 #- name: run Python database insert script with future round
 #  become: true
