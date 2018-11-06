@@ -57,20 +57,20 @@
 
 #- name: run Python database insert script
 #  become: true
-#  shell: python3 /vagrant/insert_db.py
+#  shell: python3 /vagrant/db_insert_scripts/insert_db.py
 
-- name: run Python database insert script with open round
-  become: true
-  shell: python3 /vagrant/open_insert_db.py
+#- name: run Python database insert script with open round
+#  become: true
+#  shell: python3 /vagrant/db_insert_scripts/open_insert_db.py
 
 #- name: run Python database insert script with future round
 #  become: true
-#  shell: python3 /vagrant/future_insert_db.py
+#  shell: python3 /vagrant/db_insert_scripts/future_insert_db.py
 
 #- name: run Python database insert script with inflight round
 #  become: true
-#  shell: python3 /vagrant/inflight_insert_db.py
+#  shell: python3 /vagrant/db_insert_scripts/inflight_insert_db.py
 
 #- name: run Python database insert script with no future round
 #  become: true
-#  shell: python3 /vagrant/no_future_insert_db.py
+#  shell: python3 /vagrant/db_insert_scripts/no_future_insert_db.py
